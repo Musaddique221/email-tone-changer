@@ -30,6 +30,9 @@ function App() {
     "Motivational",
     "Respectful",
   ];
+
+  const BASE_URL = "https://email-tone-changer-1.onrender.com"
+  // const BASE_URL = "http://localhost:8000"
  const handleSubmit = async () => {
   setError("");
 
@@ -40,7 +43,7 @@ function App() {
 
   setLoading(true);
   try {
-    const response = await fetch("http://localhost:8000/change-tone", {
+    const response = await fetch(`${BASE_URL}/change-tone`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text, tone }),
